@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const API_KEY = "AIzaSyBZnBLfXr5EtfTbSQ8wOZyOGXs3pLSulak";
+//cole a api key nessa variavel antes de executar o codigo
+const API_KEY = "";
 
 export async function createUser(email, password) {
   const response = await axios.post(
-    "https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=" +
-      API_KEY,
+    "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + API_KEY,
     {
       email: email,
       password: password,

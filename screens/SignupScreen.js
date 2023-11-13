@@ -1,7 +1,8 @@
 import { useState } from "react";
+
 import AuthContent from "../components/Auth/AuthContent";
-import { createUser } from "../util/auth";
 import LoadingOverlay from "../components/ui/LoadingOverlay";
+import { createUser } from "../util/auth";
 
 function SignupScreen() {
   const [isAuthenticating, setIsAuthenticating] = useState(false);
@@ -11,9 +12,11 @@ function SignupScreen() {
     await createUser(email, password);
     setIsAuthenticating(false);
   }
+
   if (isAuthenticating) {
-    return <LoadingOverlay message="Criando usuario..." />;
+    return <LoadingOverlay message="Creating user..." />;
   }
+
   return <AuthContent onAuthenticate={signupHandler} />;
 }
 
