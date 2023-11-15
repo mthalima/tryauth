@@ -1,6 +1,6 @@
 import axios from "axios";
 
-//cole a api key nessa variavel antes de executar o codigo
+//cole a api key nessa variavel antes de executar o codigo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 const API_KEY = "";
 
 async function authenticate(mode, email, password) {

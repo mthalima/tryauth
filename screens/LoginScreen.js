@@ -18,9 +18,8 @@ function LoginScreen() {
       authCtx.authenticate(token);
     } catch (error) {
       Alert.alert("Falha de autenticação", "Login ou senha inválido.");
+      setIsAuthenticating(false);
     }
-
-    setIsAuthenticating(false);
   }
 
   if (isAuthenticating) {
