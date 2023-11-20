@@ -1,10 +1,11 @@
-import { Alert } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 import AuthContent from "../components/Auth/AuthContent";
 import LoadingOverlay from "../components/ui/LoadingOverlay";
-
+import LoadingPopup from "../components/ui/LoadingPopup";
 import { login } from "../util/auth";
 import { useContext, useState } from "react";
 import { AuthContext } from "../store/auth-context";
+import { Colors } from "../constants/styles";
 
 function LoginScreen() {
   const authCtx = useContext(AuthContext);
@@ -23,10 +24,23 @@ function LoginScreen() {
   }
 
   if (isAuthenticating) {
-    return <LoadingOverlay message="Logando..." />;
+    return (
+      <LoadingPopup animating={true} size={"large"} message="Logando..." />
+    );
   }
 
-  return <AuthContent isLogin onAuthenticate={loginHandler} />;
+  return (
+    <View style={styles.loginView}>
+      <AuthContent isLogin onAuthenticate={loginHandler} />
+    </View>
+  );
 }
 
 export default LoginScreen;
+
+const styles = StyleSheet.create({
+  loginView: {
+    backgroundColor: Colors.primary100,
+    flex: 1,
+  },
+});

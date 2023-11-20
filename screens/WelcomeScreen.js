@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { AuthContext } from "../store/auth-context";
+import { Colors } from "../constants/styles";
 
 function WelcomeScreen() {
   const [fetchedMessage, setFetchedMessage] = useState("");
@@ -23,7 +24,7 @@ function WelcomeScreen() {
   return (
     <View style={styles.rootContainer}>
       <Text style={styles.title}>Welcome!</Text>
-      <Text>You authenticated successfully!</Text>
+      <Text>Logado</Text>
       <Text>{fetchedMessage}</Text>
     </View>
   );
@@ -37,8 +38,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 32,
+    backgroundColor: Colors.primary800,
   },
   title: {
+    color: Colors.primary100,
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 8,

@@ -2,9 +2,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { StatusBar } from "expo-status-bar";
-import AppLoading from "expo-app-loading";
-
+import LoadingPopup from "./components/ui/LoadingPopup";
 import LoginScreen from "./screens/LoginScreen";
+
 import SignupScreen from "./screens/SignupScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import { Colors } from "./constants/styles";
@@ -20,7 +20,7 @@ function AuthStack() {
     <Stack.Navigator
       screenOptions={{
         headerStyle: { backgroundColor: Colors.primary500 },
-        headerTintColor: "white",
+        headerTintColor: "black",
         contentStyle: { backgroundColor: Colors.primary100 },
       }}
     >
@@ -36,8 +36,8 @@ function AuthenticatedStack() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: Colors.primary500 },
-        headerTintColor: "white",
+        headerStyle: { backgroundColor: Colors.primary800 },
+        headerTintColor: "black",
         contentStyle: { backgroundColor: Colors.primary100 },
       }}
     >
@@ -45,6 +45,7 @@ function AuthenticatedStack() {
         name="Welcome"
         component={WelcomeScreen}
         options={{
+          headerStyle: { backgroundColor: Colors.primary500 },
           headerRight: ({ tintColor }) => (
             <IconButton
               icon="exit"
@@ -88,7 +89,7 @@ function Root() {
   }, []);
 
   if (isTryingLogin) {
-    return <AppLoading />;
+    return <LoadingPopup animating={true} size={"Large"} />;
   }
   return <Navigation />;
 }

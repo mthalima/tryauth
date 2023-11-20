@@ -17,13 +17,13 @@ function SignupScreen() {
       const token = await createUser(email, password);
       authCtx.authenticate(token);
     } catch (error) {
-      Alert.alert("Erro!", "Falha ao criar usuário");
+      Alert.alert("Erro de autenticação", "Tente mais tarde");
       setIsAuthenticating(false);
     }
   }
 
   if (isAuthenticating) {
-    return <LoadingOverlay message="Creating user..." />;
+    return <LoadingOverlay message="Criando usuário..." />;
   }
 
   return <AuthContent onAuthenticate={signupHandler} />;
