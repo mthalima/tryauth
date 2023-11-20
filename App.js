@@ -12,6 +12,7 @@ import AuthContextProvider, { AuthContext } from "./store/auth-context";
 import { useContext, useEffect, useState } from "react";
 
 import IconButton from "./components/ui/IconButton";
+import ChatScreen from "./screens/ChatScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ function AuthStack() {
     >
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Signup" component={SignupScreen} />
+      <Stack.Screen name="Chat" component={ChatScreen} />
     </Stack.Navigator>
   );
 }

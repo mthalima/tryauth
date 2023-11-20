@@ -3,6 +3,9 @@ import { useContext, useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { AuthContext } from "../store/auth-context";
 import { Colors } from "../constants/styles";
+import { Avatar } from "react-native-paper";
+import Button from "../components/ui/Button";
+import ChatScreen from "./ChatScreen";
 
 function WelcomeScreen() {
   const [fetchedMessage, setFetchedMessage] = useState("");
@@ -25,6 +28,14 @@ function WelcomeScreen() {
     <View style={styles.rootContainer}>
       <Text style={styles.title}>Welcome!</Text>
       <Text>Logado</Text>
+
+      <Button
+        onPress={() => {
+          return <ChatScreen Username={"Zallera"}></ChatScreen>;
+        }}
+      >
+        chat
+      </Button>
       <Text>{fetchedMessage}</Text>
     </View>
   );
