@@ -4,4 +4,5 @@ export const Colors = {
   primary800: "#d1af8a",
   error100: "#fcdcbf",
   error500: "#f37c13",
+  lightblack: "#303030",
 };

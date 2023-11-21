@@ -44,8 +44,8 @@ function AuthenticatedStack() {
       }}
     >
       <Stack.Screen
-        name="Welcome"
-        component={WelcomeScreen}
+        name="Chat"
+        component={ChatScreen}
         options={{
           headerStyle: { backgroundColor: Colors.primary500 },
           headerRight: ({ tintColor }) => (
