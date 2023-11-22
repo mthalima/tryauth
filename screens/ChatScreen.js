@@ -22,10 +22,11 @@ function ChatScreen({ Username }) {
       <TextInput
         style={styles.textContainer}
         mode="outlined"
-        label="Mensagem"
+        placeholder="Mensagem"
+        cursorColor={Colors.primary800}
         value={text}
         onChangeText={(text) => setText(text)}
-        theme={theme.colors.error}
+        theme={theme.colors.secondary}
         outlineStyle={styles.textContainerOutline}
       ></TextInput>
     </View>
@@ -63,11 +64,12 @@ const styles = StyleSheet.create({
 
   textContainer: {
     fontSize: 18,
-    width: "99%",
+    width: "97%",
     borderColor: "red",
-    marginBottom: 4,
+    marginBottom: 5,
     color: "red",
     backgroundColor: "white",
+    height: 50,
   },
 
   textContainerOutline: {
