@@ -4,6 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { StatusBar } from "expo-status-bar";
 import LoadingPopup from "./components/ui/LoadingPopup";
 import LoginScreen from "./screens/LoginScreen";
+import { PaperProvider } from "react-native-paper";
 
 import SignupScreen from "./screens/SignupScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
@@ -100,9 +101,11 @@ export default function App() {
   return (
     <>
       <StatusBar style="light" />
-      <AuthContextProvider>
-        <Root />
-      </AuthContextProvider>
+      <PaperProvider>
+        <AuthContextProvider>
+          <Root />
+        </AuthContextProvider>
+      </PaperProvider>
     </>
   );
 }

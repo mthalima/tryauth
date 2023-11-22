@@ -1,24 +1,32 @@
 import { StyleSheet, View, Text } from "react-native";
-import { TextInput } from "react-native-paper";
 
-import { Avatar } from "react-native-paper";
+import { Avatar, useTheme, TextInput } from "react-native-paper";
 import { Colors } from "../constants/styles";
+import { useState } from "react";
 
 function ChatScreen({ Username }) {
+  const theme = useTheme();
+  const [text, setText] = useState("");
+
   return (
     <View style={styles.OverallContainer}>
       <View style={styles.profileContainer}>
         <Avatar.Image
           style={styles.avatar}
-          size={70}
+          size={65}
           source={require("../assets/profile-img.jpeg")}
         />
-        <Text style={styles.username}>Zallera</Text>
+        <Text style={styles.username}>zallera</Text>
       </View>
       <View style={styles.chatHistory}></View>
       <TextInput
-        style={styles.TextInputContainer}
-        cursorColor={Colors.error100}
+        style={styles.textContainer}
+        mode="outlined"
+        label="Mensagem"
+        value={text}
+        onChangeText={(text) => setText(text)}
+        theme={theme.colors.error}
+        outlineStyle={styles.textContainerOutline}
       ></TextInput>
     </View>
   );
@@ -30,6 +38,8 @@ const styles = StyleSheet.create({
   OverallContainer: {
     flex: 1,
     backgroundColor: Colors.primary100,
+
+    alignItems: "center",
   },
 
   avatar: {
@@ -37,30 +47,42 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginVertical: 8,
     backgroundColor: Colors.lightblack,
-    width: 77,
-    height: 77,
+    width: 70,
+    height: 70,
     alignItems: "center",
     borderRadius: 200,
-    elevation: 10,
+    elevation: 30,
   },
 
   profileContainer: {
+    width: "100%",
     flexDirection: "row",
     backgroundColor: Colors.primary500,
     elevation: 10,
   },
 
+  textContainer: {
+    fontSize: 18,
+    width: "99%",
+    borderColor: "red",
+    marginBottom: 4,
+    color: "red",
+    backgroundColor: "white",
+  },
+
+  textContainerOutline: {
+    borderRadius: 10,
+    borderColor: Colors.primary800,
+    borderWidth: 2,
+  },
+
   username: {
-    fontSize: 24,
+    fontSize: 20,
     textAlign: "center",
     marginTop: 30,
   },
 
   chatHistory: {
     flex: 2,
-  },
-
-  TextInputContainer: {
-    marginBottom: 20,
   },
 });

@@ -23,7 +23,7 @@ function WelcomeScreen() {
         setFetchedMessage(response.data);
       });
   }, [token]);
-
+  //----------------------------------------------------------------------------------
   return (
     <View style={styles.rootContainer}>
       <Text style={styles.title}>Welcome!</Text>
@@ -31,7 +31,7 @@ function WelcomeScreen() {
 
       <Button
         onPress={() => {
-          return <ChatScreen Username={"Zallera"}></ChatScreen>;
+          return <ChatScreen Username={Username}></ChatScreen>;
         }}
       >
         chat
