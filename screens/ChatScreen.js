@@ -3,6 +3,7 @@ import { StyleSheet, View, Text } from "react-native";
 import { Avatar, useTheme, TextInput } from "react-native-paper";
 import { Colors } from "../constants/styles";
 import { useState } from "react";
+import DialogText from "../components/ui/DialogText";
 
 function ChatScreen({ Username }) {
   const theme = useTheme();
@@ -18,7 +19,9 @@ function ChatScreen({ Username }) {
         />
         <Text style={styles.username}>zallera</Text>
       </View>
-      <View style={styles.chatHistory}></View>
+      <View style={styles.chatHistory}>
+        <DialogText message="aqui o texto" />
+      </View>
       <TextInput
         style={styles.textContainer}
         mode="outlined"
