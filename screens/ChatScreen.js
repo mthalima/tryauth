@@ -5,9 +5,13 @@ import { Colors } from "../constants/styles";
 import { useState } from "react";
 import DialogText from "../components/ui/DialogText";
 
-function ChatScreen({ Username }) {
+function ChatScreen({ username }) {
   const theme = useTheme();
   const [text, setText] = useState("");
+
+  function sendMessage() {
+    console.log("enviou mensagem");
+  }
 
   return (
     <View style={styles.OverallContainer}>
@@ -17,21 +21,23 @@ function ChatScreen({ Username }) {
           size={65}
           source={require("../assets/profile-img.jpeg")}
         />
-        <Text style={styles.username}>zallera</Text>
+        <Text style={styles.username}>Zallera</Text>
       </View>
       <View style={styles.chatHistory}>
         <DialogText message="aqui o texto" />
       </View>
-      <TextInput
-        style={styles.textContainer}
-        mode="outlined"
-        placeholder="Mensagem"
-        cursorColor={Colors.primary800}
-        value={text}
-        onChangeText={(text) => setText(text)}
-        theme={theme.colors.secondary}
-        outlineStyle={styles.textContainerOutline}
-      ></TextInput>
+      <View style={styles.dialogInputContainer}>
+        <TextInput
+          style={styles.textContainer}
+          mode="outlined"
+          placeholder="Mensagem"
+          cursorColor={Colors.primary800}
+          value={text}
+          onChangeText={(text) => setText(text)}
+          theme={theme.colors.secondary}
+          outlineStyle={styles.textContainerOutline}
+        ></TextInput>
+      </View>
     </View>
   );
 }
@@ -67,7 +73,7 @@ const styles = StyleSheet.create({
 
   textContainer: {
     fontSize: 18,
-    width: "97%",
+
     borderColor: "red",
     marginBottom: 5,
     color: "red",
@@ -89,5 +95,10 @@ const styles = StyleSheet.create({
 
   chatHistory: {
     flex: 2,
+  },
+
+  dialogInputContainer: {
+    width: "100%",
+    flexDirection: "row",
   },
 });
