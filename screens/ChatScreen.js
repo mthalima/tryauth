@@ -1,6 +1,6 @@
 import { StyleSheet, View, Text } from "react-native";
 
-import { Avatar, useTheme, TextInput } from "react-native-paper";
+import { Avatar, useTheme, TextInput, Button } from "react-native-paper";
 import { Colors } from "../constants/styles";
 import { useState } from "react";
 import DialogText from "../components/ui/DialogText";
@@ -24,7 +24,7 @@ function ChatScreen({ username }) {
         <Text style={styles.username}>Zallera</Text>
       </View>
       <View style={styles.chatHistory}>
-        <DialogText message="aqui o texto" />
+        <DialogText message={text} />
       </View>
       <View style={styles.dialogInputContainer}>
         <TextInput
@@ -37,6 +37,11 @@ function ChatScreen({ username }) {
           theme={theme.colors.secondary}
           outlineStyle={styles.textContainerOutline}
         ></TextInput>
+        <Button
+          style={styles.enterButton}
+          icon="camera"
+          type="contained-tonal"
+        ></Button>
       </View>
     </View>
   );
@@ -100,5 +105,15 @@ const styles = StyleSheet.create({
   dialogInputContainer: {
     width: "100%",
     flexDirection: "row",
+  },
+
+  enterButton: {
+    backgroundColor: Colors.primary800,
+    justifyContent: "center",
+    alignContent: "center",
+    width: 50,
+    height: 50,
+    marginLeft: 5,
+    borderRadius: 50,
   },
 });

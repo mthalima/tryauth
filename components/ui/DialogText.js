@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Colors } from "../../constants/styles";
+import { useState } from "react";
 
 function DialogText({ message }) {
   return (
