@@ -38,8 +38,10 @@ function ChatScreen({ username }) {
           outlineStyle={styles.textContainerOutline}
         ></TextInput>
         <Button
+          rippleColor="green"
+          textColor="black"
           style={styles.enterButton}
-          icon="camera"
+          icon="send"
           type="contained-tonal"
         ></Button>
       </View>
@@ -77,8 +79,9 @@ const styles = StyleSheet.create({
   },
 
   textContainer: {
+    marginLeft: 5,
     fontSize: 18,
-
+    width: "80%",
     borderColor: "red",
     marginBottom: 5,
     color: "red",
@@ -105,14 +108,17 @@ const styles = StyleSheet.create({
   dialogInputContainer: {
     width: "100%",
     flexDirection: "row",
+    alignContent: "center",
+    justifyContent: "center",
   },
 
   enterButton: {
     backgroundColor: Colors.primary800,
     justifyContent: "center",
-    alignContent: "center",
+    textAlign: "center",
+    paddingLeft: 10,
     width: 50,
-    height: 50,
+    height: 45,
     marginLeft: 5,
     borderRadius: 50,
   },
