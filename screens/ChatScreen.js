@@ -1,16 +1,21 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, TextInput } from "react-native";
 
-import { Avatar, useTheme, TextInput, Button } from "react-native-paper";
+import { Avatar, useTheme, Button } from "react-native-paper";
 import { Colors } from "../constants/styles";
 import { useState } from "react";
 import DialogText from "../components/ui/DialogText";
 
 function ChatScreen({ username }) {
-  const theme = useTheme();
   const [text, setText] = useState("");
+  const [message, setMessage] = useState("");
 
   function sendMessage() {
-    console.log("enviou mensagem");
+    if (text.trim() !== "") {
+      setMessage(text);
+    } else {
+      setMessage("");
+    }
+    setText("");
   }
 
   return (
@@ -24,25 +29,22 @@ function ChatScreen({ username }) {
         <Text style={styles.username}>Zallera</Text>
       </View>
       <View style={styles.chatHistory}>
-        <DialogText message={text} />
+        <DialogText message={message} />
       </View>
       <View style={styles.dialogInputContainer}>
         <TextInput
           style={styles.textContainer}
-          mode="outlined"
+          cursorColor={Colors.lightblack}
           placeholder="Mensagem"
-          cursorColor={Colors.primary800}
           value={text}
           onChangeText={(text) => setText(text)}
-          theme={theme.colors.secondary}
-          outlineStyle={styles.textContainerOutline}
-        ></TextInput>
+        />
         <Button
-          rippleColor="green"
           textColor="black"
           style={styles.enterButton}
           icon="send"
           type="contained-tonal"
+          onPress={sendMessage}
         ></Button>
       </View>
     </View>
@@ -79,20 +81,17 @@ const styles = StyleSheet.create({
   },
 
   textContainer: {
-    marginLeft: 5,
+    marginLeft: 1,
     fontSize: 18,
     width: "80%",
-    borderColor: "red",
+    borderWidth: 1.5,
+    borderColor: Colors.primary500,
+    borderRadius: 30,
+    padding: 13,
     marginBottom: 5,
-    color: "red",
+    color: Colors.lightblack,
     backgroundColor: "white",
     height: 50,
-  },
-
-  textContainerOutline: {
-    borderRadius: 10,
-    borderColor: Colors.primary800,
-    borderWidth: 2,
   },
 
   username: {
@@ -114,12 +113,12 @@ const styles = StyleSheet.create({
 
   enterButton: {
     backgroundColor: Colors.primary800,
+    marginTop: 3,
     justifyContent: "center",
     textAlign: "center",
-    paddingLeft: 10,
     width: 50,
     height: 45,
-    marginLeft: 5,
+    marginLeft: 4,
     borderRadius: 50,
   },
 });
